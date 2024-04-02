@@ -1,0 +1,30 @@
+# requirements.txt
+#
+# Python dependencies for the inventory synchronization service.
+# This service (services/inventory_sync.py) is responsible for
+# keeping product inventory up-to-date, potentially by fetching
+# data from external systems or interacting with the main
+# e-commerce database.
+
+# For making HTTP requests to external APIs (e.g., supplier APIs,
+# or the main Node.js backend's internal APIs for product updates).
+requests==2.31.0
+
+# For loading environment variables from a .env file,
+# crucial for secure configuration like database credentials or API keys.
+python-dotenv==1.0.0
+
+# For interacting with a PostgreSQL database. Assuming the main e-commerce
+# platform uses PostgreSQL, this allows the Python service to directly
+# read and update inventory records for efficiency and consistency.
+psycopg2-binary==2.9.9
+
+# Optional: If the inventory sync process involves complex data manipulation
+# or integration with spreadsheet-like data sources.
+# pandas==2.1.4
+
+# Optional: If the service needs to publish or consume messages from a
+# message queue (e.g., for event-driven inventory updates or notifications
+# to other microservices like an "Order Fulfillment Service" or "Product Catalog Service").
+# pika==1.3.2 # For RabbitMQ
+# confluent-kafka==2.3.0 # For Apache Kafka

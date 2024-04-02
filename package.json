@@ -1,0 +1,61 @@
+{
+  "name": "e-commerce-storefront",
+  "version": "1.0.0",
+  "description": "A robust e-commerce platform featuring product listings, user accounts, a shopping cart, order management, and an admin panel for product inventory. This storefront integrates with a Python-based inventory synchronization service, and leverages other internal microservices like the AI-Powered Content Summarizer for generating product descriptions and the Markdown Previewer for rich text content management in the admin panel. Future integrations may include the Full-Stack Blog Platform for marketing content.",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "server": "nodemon server/index.js",
+    "client": "npm start --prefix client",
+    "install-client": "npm install --prefix client",
+    "build-client": "npm run build --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write \"**/*.{js,jsx,json,css,md}\"",
+    "test": "echo \"No tests specified for the root project. Run tests in client/ or server/ as needed.\" && exit 0",
+    "inventory-sync": "python services/inventory_sync.py",
+    "seed-db": "node server/utils/seed.js"
+  },
+  "keywords": [
+    "e-commerce",
+    "storefront",
+    "react",
+    "nodejs",
+    "express",
+    "mongodb",
+    "javascript",
+    "python",
+    "microservices",
+    "ai-summarizer",
+    "markdown-previewer"
+  ],
+  "author": "Your Name/Organization",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.6.8",
+    "bcryptjs": "^2.4.3",
+    "colors": "^1.4.0",
+    "concurrently": "^8.2.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-async-handler": "^1.2.0",
+    "express-validator": "^7.0.1",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.3.2",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.1",
+    "stripe": "^15.3.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-react": "^7.34.1",
+    "nodemon": "^3.1.0",
+    "prettier": "^3.2.5"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
